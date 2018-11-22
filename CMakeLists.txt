@@ -14,8 +14,13 @@ include(setup.cmake)
 # Not so nice C++17 integration, as CMake version >= 3.8 is not available here
 set(CMAKE_CXX_FLAGS "-std=c++17 ${CMAKE_CXX_FLAGS}")
 
-include(external/tudostats)
+add_subdirectory(external/tudostats)
 
-
+add_executable(example
+    example.cpp
+)
+target_link_libraries(example
+    tudocomp_stat
+)
 
 ################################################################################
