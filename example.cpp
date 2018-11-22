@@ -1,11 +1,11 @@
-#include <tudocomp_stat/StatPhase.hpp>
-
 #include <iostream>
 #include <chrono>
 #include <thread>
 #include <cstdint>
 
-constexpr uint64_t MiB = 1024ull * 1024ull;
+#include <tudocomp_stat/StatPhase.hpp>
+
+#include <example.hpp>
 
 int main (int argc, char *argv[]) {
     free(malloc(42));
@@ -29,10 +29,7 @@ int main (int argc, char *argv[]) {
         }
         {
             tdc::StatPhase sub("test2");
-            std::vector<uint8_t> w(MiB * 20ull, 0xff);
-
-            std::cout << "allocation: " << (void*)&w.front() << " - " << (void*)&w.back() << "\n";
-            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            subfunction();
         }
     }
 
