@@ -48,3 +48,6 @@ set(TDC_DEBUG_FLAGS "-O0;-g;-ggdb;-DDEBUG")
 
 # Flags recommended for optimized, fast, release builds.
 set(TDC_RELEASE_FLAGS "-O3;-march=native;-DNDEBUG;-g")
+
+# Output what build type we are currently using
+message(STATUS "[Built Type]: " ${CMAKE_BUILD_TYPE})
