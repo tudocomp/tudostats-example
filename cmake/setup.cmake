@@ -4,10 +4,10 @@
 # All rights reserved. Published under the Apache license in the LICENSE file.
 ################################################################################
 
-# Sets up useful cmake settings
+# Set up usefull cmake settings.
 
-# Prevent in-source builds, as they can b reak in
-# intersting ways and are hard to clean up
+# Prevent in-source builds, as they can break in
+# interesting ways and are hard to clean up.
 if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
   message(FATAL_ERROR "In-source builds are not allowed. "
     "Please remove ${CMAKE_BINARY_DIR}/CMakeCache.txt and the ${CMAKE_BINARY_DIR}/CMakeFiles/ directory. "
@@ -27,8 +27,8 @@ endif(CCACHE_FOUND)
 # and debugging symbols in the binary.
 #
 # Possible options:
-# - "Release": Fast, but without debugging support and assertions
-# - "Debug": Slow, but with debugging support and assertions
+# - "Release": Fast, but without debugging support and assertions.
+# - "Debug": Slow, but with debugging support and assertions.
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Debug")
 endif(NOT CMAKE_BUILD_TYPE)
@@ -37,14 +37,14 @@ endif(NOT CMAKE_BUILD_TYPE)
 # to be warning-free, or for a CI tool to check it.
 option(TDC_WERROR "Turn GCC warnings into errors")
 
-# Flags that are generally recommended
+# Flags that are generally recommended.
 set(TDC_FLAGS "-Wall;-pedantic;-Wpedantic;-Wextra;-Werror=return-type;-fdiagnostics-color=auto")
 if (TDC_WERROR)
     set(TDC_FLAGS "${TDC_FLAGS};-Werror;-pedantic-errors")
 endif()
 
-# Flags recommended for debugging
+# Flags recommended for debugging.
 set(TDC_DEBUG_FLAGS "-O0;-g;-ggdb;-DDEBUG")
 
-# Flags recommended for optimized, fast, release builds
+# Flags recommended for optimized, fast, release builds.
 set(TDC_RELEASE_FLAGS "-O3;-march=native;-DNDEBUG;-g")

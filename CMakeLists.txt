@@ -4,7 +4,7 @@
 # All rights reserved. Published under the Apache license in the LICENSE file.
 ################################################################################
 
-# INFO: If there are issues because the installed camke version is too old,
+# INFO: If there are issues because the installed cmake version is too old,
 # see legacy.cmake for legacy cmake functions that can be used instead.
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
