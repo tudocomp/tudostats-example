@@ -33,11 +33,18 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Debug")
 endif(NOT CMAKE_BUILD_TYPE)
 
+# CMake option to turn warnings into errors. Useful to force oneself
+# to be warning-free, or for a CI tool to check it.
 option(TDC_WERROR "Turn GCC warnings into errors")
 
+# Flags that are generally recommended
 set(TDC_FLAGS "-Wall;-pedantic;-Wpedantic;-Wextra;-Werror=return-type;-fdiagnostics-color=auto")
 if (TDC_WERROR)
     set(TDC_FLAGS "${TDC_FLAGS};-Werror;-pedantic-errors")
 endif()
+
+# Flags recommended for debugging
 set(TDC_DEBUG_FLAGS "-O0;-g;-ggdb;-DDEBUG")
+
+# Flags recommended for optimized, fast, release builds
 set(TDC_RELEASE_FLAGS "-O3;-march=native;-DNDEBUG;-g")
